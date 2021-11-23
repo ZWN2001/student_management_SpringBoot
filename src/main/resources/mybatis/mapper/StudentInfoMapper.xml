@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manager.mapper.StudentInfoMapper">
+
+    <select id="getStudentInfo" resultType="com.manager.pojo.Student">
+        SELECT * FROM student_info where 1=1
+        <if test="sid!=null">
+            AND sid = '${sid}'
+        </if>
+        <if test="name!=null">
+            AND `name` = '${name}'
+        </if>
+        <if test="clazz!=null">
+            AND clazz = '${clazz}'
+        </if>
+        <if test="mail!=null">
+            AND mail = '${mail}'
+        </if>
+        <if test="phone!=null">
+            AND phone = '${phone}'
+        </if>
+    </select>
+
+    <update id="updateStudentInfo">
+        UPDATE student_info set `name` = '${name}',mail = '${mail}',phone = '${phone}',other ='${other}',address = '${address}'
+        WHERE sid = ${sid}
+    </update>
+
+
+    <select id="getStudentNameBySid" resultType="map">
+        SELECT `name` FROM student_info where  sid = '${sid}'
+    </select>
+    <select id="getStudentBySid" resultType="map">
+        SELECT password FROM student_info where  sid = '${sid}'
+    </select>
+
+</mapper>

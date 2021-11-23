@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manager.mapper.ClassGradeInfoMapper">
+
+    <select id="getClassGradeInfo" resultType="com.manager.pojo.GradeInfo">
+        SELECT sid,cid,studentName,cname,mark,teacherName,credit,clazz FROM course_selected WHERE 1=1
+        <if test="cname!=null">
+            AND cname LIKE '%${cname}%'
+        </if>
+        <if test="studentName!=null">
+            AND studentName LIKE '%${studentName}%'
+        </if>
+        <if test="cid!=null">
+            AND cid LIKE '%${cid}%'
+        </if>
+        <if test="tid!=null">
+            AND tid LIKE '%${tid}%'
+        </if>
+        <if test="clazz!=null">
+            AND clazz LIKE '%${clazz}%'
+        </if>
+        <if test="credit!=null">
+            AND credit LIKE '%${credit}%'
+        </if>
+        <if test="sid!=null">
+            AND sid LIKE '%${sid}%'
+        </if>
+    </select>
+
+
+    <!--LinkedList<ClassGradeInfoView> getClassGradeInfoMakeup(ClassGradeInfoView classGradeInfoView);-->
+
+<!--    <select id="getClassGradeInfoMakeup" resultType="com.manager.pojo.GradeInfo">-->
+<!--        SELECT * FROM class_grade WHERE grade &lt;= 60-->
+<!--        <if test="cname!=null">-->
+<!--            AND cname LIKE '%${cname}%'-->
+<!--        </if>-->
+<!--        <if test="studentName!=null">-->
+<!--            AND studentName LIKE '%${studentName}%'-->
+<!--        </if>-->
+<!--        <if test="sid!=null">-->
+<!--            AND sid LIKE '%${sid}%'-->
+<!--        </if>-->
+<!--    </select>-->
+
+
+    <update id="updateGrade">
+        update course_selected set mark=${mark} where cid=${cid}  and sid = ${sid};
+    </update>
+
+<!--    &lt;!&ndash;Integer updateGradeMakeup(ClassGradeInfoView classGradeInfoView);&ndash;&gt;-->
+<!--    <update id="updateGradeMakeup">-->
+<!--        update class set makeup_grade=${makeupGrade}-->
+
+<!--        <if test="rebuild!=null">-->
+<!--            , rebuild = ${rebuild}-->
+<!--            , grade=NULL-->
+<!--        </if>-->
+
+<!--        where cid= (select cid from course where cname='${cname}') and sid = ${sid};-->
+<!--    </update>-->
+</mapper>
