@@ -3,17 +3,15 @@ package com.manager.pojo;
 public class Student {
     private  Integer sid;
     private  String name;
-    private String password;
     private Integer clazz;
     private String mail;
     private String phone;
     private String address;
     private String other;
 
-    public Student(Integer sid, String name, String password, Integer clazz, String mail, String phone, String address, String other) {
+    public Student(Integer sid, String name, Integer clazz, String mail, String phone, String address, String other) {
         this.sid = sid;
         this.name = name;
-        this.password = password;
         this.clazz = clazz;
         this.mail = mail;
         this.phone = phone;
@@ -28,7 +26,6 @@ public class Student {
         return "Student{" +
                 "sid=" + sid +
                 ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
                 ", clazz=" + clazz +
                 ", mail='" + mail + '\'' +
                 ", phone='" + phone + '\'' +
@@ -51,14 +48,6 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public Integer getClazz() {

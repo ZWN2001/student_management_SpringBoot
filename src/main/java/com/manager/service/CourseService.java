@@ -3,6 +3,7 @@ package com.manager.service;
 import com.manager.mapper.CourseMapper;
 import com.manager.pojo.Course;
 import com.manager.pojo.CourseSelected;
+import com.manager.util.MyPageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,15 +20,7 @@ public class CourseService {
     CourseMapper courseMapper;
     private ArrayList<Course> courses = new ArrayList<>();
     private ArrayList<CourseSelected> selectedCourses = new ArrayList<>();
-    public static Map<String,Object> MypageHelper(Map<String,String> params, ArrayList data){
-        Map<String,Object> res = new HashMap<>();
-        int from =(Integer.parseInt(params.get("pageIndex"))-1)*(Integer.parseInt(params.get("pageSize")));
-        int to = (Integer.parseInt(params.get("pageIndex")))*(Integer.parseInt(params.get("pageSize")));
-        //小小地实现一下分页，
-        res.put("data",data.subList(from, Math.min(to, data.size())));
-        res.put("pagetotal",data.size());
-        return  res;
-    }
+
 
     public Map<String,Object> getCourseMap(@RequestBody Map<String,String> params){
         courses.clear();
@@ -42,11 +35,8 @@ public class CourseService {
                 courses.add(course);
             }
 
-        return  MypageHelper(params,courses);
+        return MyPageHelper.myPageHelper(params, courses);
     }
-
-
-
 
     public int dropCourse(@RequestBody Map<String,String> params){
         System.out.println(params);
@@ -164,7 +154,7 @@ public class CourseService {
             }catch (Exception e){
                 e.printStackTrace();
             }
-            return MypageHelper(params,selectedCourses);
+            return MyPageHelper.myPageHelper(params, selectedCourses);
     }
 
     //学生获取所有选课（用于课表）

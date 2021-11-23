@@ -5,10 +5,14 @@
 <mapper namespace="com.manager.mapper.TeacherMapper">
 
     <select id="getTeacher" resultType="com.manager.pojo.Teacher">
-        SELECT * FROM teacher_info
+        SELECT tid,`name` FROM teacher_info
     </select>
 
     <select id="getTeacherById" resultType="com.manager.pojo.Teacher">
-        SELECT * FROM teacher_info where `tid` = ${tid}
+        SELECT tid,`name` FROM teacher_info where `tid` = ${tid}
+    </select>
+
+    <select id="getTeaValidator" resultType="com.manager.pojo.Validator">
+        SELECT passwordData FROM teacher_info where `tid` = ${tid}
     </select>
 </mapper>

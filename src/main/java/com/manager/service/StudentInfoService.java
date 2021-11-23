@@ -2,6 +2,7 @@ package com.manager.service;
 
 import com.manager.mapper.StudentInfoMapper;
 import com.manager.pojo.*;
+import com.manager.util.MyPageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,16 +17,6 @@ public class StudentInfoService {
     @Autowired
     StudentInfoMapper studentInfoMapper;
 
-    public static Map<String,Object> MypageHelper(Map<String,Object> params,List<Student> data){
-        Map<String,Object> res = new HashMap<>();
-        int from =((Integer)params.get("pageIndex")-1)*((Integer)params.get("pageSize"));
-        int to = ((Integer)params.get("pageIndex"))*((Integer)params.get("pageSize"));
-        //小小地实现一下分页，就不用pagehelper了
-        res.put("data",data.subList(from,to>data.size()?data.size():to));
-        res.put("pagetotal",data.size());
-        return  res;
-    }
-
     public Map<String, Object> searchStudentInfo(Map<String, Object> params) {
         Student student = new Student();
         student.setSid( params.get("sid")==""?null:Integer.parseInt((String)params.get("sid")) );
@@ -33,7 +24,7 @@ public class StudentInfoService {
         student.setClazz( params.get("clazz")==""?null:Integer.parseInt((String)params.get("clazz")) );
         student.setMail( params.get("mail")==""?null:(String)params.get("mail") );
         student.setPhone( params.get("phone")==""?null:(String)params.get("phone") );
-        return MypageHelper(params,studentInfoMapper.getStudentInfo(student));
+        return MyPageHelper.myPageHelper(params, studentInfoMapper.getStudentInfo(student));
     }
 
 

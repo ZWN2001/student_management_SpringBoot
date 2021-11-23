@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `student_info`;
 CREATE TABLE `student_info` (
   `sid` int(18) NOT NULL COMMENT '学号',
   `name` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `password` varchar(255) NOT NULL DEFAULT '123456',
+  `passwordData` varchar(255) NOT NULL DEFAULT '123456',
   `clazz` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '2',
   `mail` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
   `phone` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
@@ -59,35 +59,35 @@ CREATE TABLE `student_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-INSERT INTO `student_info` VALUES ('1001','23','123456', '2', '2134356214@qq.com', '18293940302', 'address', '这里描述一些其他信息');
-INSERT INTO `student_info` VALUES ('1002', '23','123456','2', '1286438129@qq.com', '12346459653', 'address', '这里描述一些其他信息');
-INSERT INTO `student_info` VALUES ('1003', '23','123456','2', '3310811999@qq.com', '17384950382', 'address', '这里描述一些其他信息');
-INSERT INTO `student_info` VALUES ('1004','23','123456', '1', '331081199@qq.com', '14563463452', 'address', '这里描述一些其他信息');
-INSERT INTO `student_info` VALUES ('1005','23','123456', '2', '3329262000@qq.com', '14563463452', 'address', '大家好我是来自浙江省的练习生洪飞鸿');
-INSERT INTO `student_info` VALUES ('1006','23','123456', '2', '33292620000@qq.com', '14563463452', 'address', '大家好我是来自浙江省的练习生YK');
-INSERT INTO `student_info` VALUES ('1016','23','123456', '2', '33292619990@qq.com', '14563463452', 'address', '这里是其他信息');
-INSERT INTO `student_info` VALUES ('1017','23','123456', '2', '332926200001@qq.com', '14563463452', 'address', '大家好我是来自浙江省的练习生');
-INSERT INTO `student_info` VALUES ('1021','23','123456', '1', '33292620001@qq.com', '14563463452', 'address', '7777777777');
-INSERT INTO `student_info` VALUES ('1023','23','123456', '2', '332963199@qq.com', '14563463452', 'address', 'other infomathons');
-INSERT INTO `student_info` VALUES ('1024','23','123456', '1', '33292619991@qq.com', '14563463452', 'address', 'other Infomations');
-INSERT INTO `student_info` VALUES ('1029','23','123456', '1', '33292619991@qq.com', '14563463452', 'address', '12314aweqwe');
-INSERT INTO `student_info` VALUES ('1030','23','123456', '1', '33292619991@qq.com', '14563463452', 'address', '请问阿斯顿2312321');
-INSERT INTO `student_info` VALUES ('1033','23','123456', '3', '1231231231@qq.com', '14563463452', 'address', '123123123123123123');
-INSERT INTO `student_info` VALUES ('1035','23','123456', '2', '231412312412@qq.com', '14563463452', 'address', '123123124123141');
+INSERT INTO `student_info` VALUES ('1001','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '2', '2134356214@qq.com', '18293940302', 'address', '这里描述一些其他信息');
+INSERT INTO `student_info` VALUES ('1002', '23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu','2', '1286438129@qq.com', '12346459653', 'address', '这里描述一些其他信息');
+INSERT INTO `student_info` VALUES ('1003', '23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu','2', '3310811999@qq.com', '17384950382', 'address', '这里描述一些其他信息');
+INSERT INTO `student_info` VALUES ('1004','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '1', '331081199@qq.com', '14563463452', 'address', '这里描述一些其他信息');
+INSERT INTO `student_info` VALUES ('1005','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '2', '3329262000@qq.com', '14563463452', 'address', '大家好我是来自浙江省的练习生洪飞鸿');
+INSERT INTO `student_info` VALUES ('1006','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '2', '33292620000@qq.com', '14563463452', 'address', '大家好我是来自浙江省的练习生YK');
+INSERT INTO `student_info` VALUES ('1016','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '2', '33292619990@qq.com', '14563463452', 'address', '这里是其他信息');
+INSERT INTO `student_info` VALUES ('1017','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '2', '332926200001@qq.com', '14563463452', 'address', '大家好我是来自浙江省的练习生');
+INSERT INTO `student_info` VALUES ('1021','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '1', '33292620001@qq.com', '14563463452', 'address', '7777777777');
+INSERT INTO `student_info` VALUES ('1023','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '2', '332963199@qq.com', '14563463452', 'address', 'other infomathons');
+INSERT INTO `student_info` VALUES ('1024','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '1', '33292619991@qq.com', '14563463452', 'address', 'other Infomations');
+INSERT INTO `student_info` VALUES ('1029','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '1', '33292619991@qq.com', '14563463452', 'address', '12314aweqwe');
+INSERT INTO `student_info` VALUES ('1030','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '1', '33292619991@qq.com', '14563463452', 'address', '请问阿斯顿2312321');
+INSERT INTO `student_info` VALUES ('1033','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '3', '1231231231@qq.com', '14563463452', 'address', '123123123123123123');
+INSERT INTO `student_info` VALUES ('1035','23','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu', '2', '231412312412@qq.com', '14563463452', 'address', '123123124123141');
 
 
 DROP TABLE IF EXISTS `teacher_info`;
 CREATE TABLE `teacher_info` (
   `tid` int(18) NOT NULL,
   `name` varchar(25) NOT NULL,
-  `password` varchar(255) NOT NULL DEFAULT '123456',
+  `passwordData` varchar(255) NOT NULL ,
   PRIMARY KEY (`tid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-INSERT INTO `teacher_info` VALUES ('1', '王老师','123456');
-INSERT INTO `teacher_info` VALUES ('2', '张老师','123456');
-INSERT INTO `teacher_info` VALUES ('3', '李老师','123456');
+INSERT INTO `teacher_info` VALUES ('1', '王老师','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu');
+INSERT INTO `teacher_info` VALUES ('2', '张老师','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu');
+INSERT INTO `teacher_info` VALUES ('3', '李老师','$2a$10$JxggSMAQ.gGG9TXN9oFaducwlqHRzT4NgR5Wh70z1sXnPk.ytHAlu');
 #
 # -- ----------------------------
 # -- View structure for class_grade

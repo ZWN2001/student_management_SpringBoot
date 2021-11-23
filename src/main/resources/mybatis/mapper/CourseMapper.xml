@@ -37,7 +37,7 @@
     </select>
 
     <select id="getSelectedCourse" resultType="com.manager.pojo.CourseSelected">
-        SELECT sid,tid,cid,teacherName,cname,courseDay,courseSection,credit,`start`,`end`  FROM course_selected
+        SELECT sid,tid,cid,teacherName,studentName,cname,courseDay,courseSection,credit,`start`,`end`  FROM course_selected
         where 1=1
         <if test="sid!=null">
             AND sid = '${sid}'

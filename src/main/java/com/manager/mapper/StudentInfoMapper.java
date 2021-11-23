@@ -1,6 +1,7 @@
 package com.manager.mapper;
 
 import com.manager.pojo.Student;
+import com.manager.pojo.Validator;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.LinkedList;
@@ -22,4 +23,5 @@ public interface StudentInfoMapper {
 
     LinkedList<String> getStudentNameBySid(String sid);
     LinkedList<String> getStudentBySid(String sid);
+    Validator getStuValidator(String sid);
 }
