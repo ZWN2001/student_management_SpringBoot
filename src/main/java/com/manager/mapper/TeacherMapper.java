@@ -12,4 +12,5 @@ public interface TeacherMapper {
     LinkedList<Teacher> getTeacher();
     LinkedList<Teacher> getTeacherById(String tid);
     Validator getTeaValidator(String tid);
+    void updatePassword(String tid,String passwordData);
 }

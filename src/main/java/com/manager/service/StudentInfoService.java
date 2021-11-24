@@ -32,7 +32,6 @@ public class StudentInfoService {
         String str = studentInfoMapper.getStudentNameBySid(sid).toString();
         str = str.substring(2,str.length()-2);
         String strs[] = str.split("=");
-        System.out.println("name:"+strs[1]);
         return strs[1];
     }
 

@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -27,7 +25,6 @@ public class ClassGradeInfoService {
         gradeInfo.setSid(Objects.equals(params.get("sid"), "")?null:Integer.valueOf((String) params.get("sid")));
         gradeInfo.setTid(Objects.equals(params.get("tid"), "")?null:Integer.valueOf((String) params.get("tid")));
         gradeInfo.setClazz(params.get("clazz")==""?null:Integer.valueOf((String) params.get("clazz")));
-//        gradeInfo.setTeacherName(params.get("teacherName")==""?null:(String) params.get("teacherName"));
         gradeInfo.setCredit(params.get("credit")==""?null:(String)params.get("credit"));
         System.out.println(classGradeInfoMapper.getClassGradeInfo(gradeInfo));
         return MyPageHelper.myPageHelper(params, classGradeInfoMapper.getClassGradeInfo(gradeInfo));

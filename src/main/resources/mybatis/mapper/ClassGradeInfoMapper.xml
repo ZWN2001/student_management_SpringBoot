@@ -29,36 +29,7 @@
         </if>
     </select>
 
-
-    <!--LinkedList<ClassGradeInfoView> getClassGradeInfoMakeup(ClassGradeInfoView classGradeInfoView);-->
-
-<!--    <select id="getClassGradeInfoMakeup" resultType="com.manager.pojo.GradeInfo">-->
-<!--        SELECT * FROM class_grade WHERE grade &lt;= 60-->
-<!--        <if test="cname!=null">-->
-<!--            AND cname LIKE '%${cname}%'-->
-<!--        </if>-->
-<!--        <if test="studentName!=null">-->
-<!--            AND studentName LIKE '%${studentName}%'-->
-<!--        </if>-->
-<!--        <if test="sid!=null">-->
-<!--            AND sid LIKE '%${sid}%'-->
-<!--        </if>-->
-<!--    </select>-->
-
-
     <update id="updateGrade">
-        update course_selected set mark=${mark} where cid=${cid}  and sid = ${sid};
+        update course_selected set mark=#{mark} where cid=#{cid}  and sid = #{sid};
     </update>
-
-<!--    &lt;!&ndash;Integer updateGradeMakeup(ClassGradeInfoView classGradeInfoView);&ndash;&gt;-->
-<!--    <update id="updateGradeMakeup">-->
-<!--        update class set makeup_grade=${makeupGrade}-->
-
-<!--        <if test="rebuild!=null">-->
-<!--            , rebuild = ${rebuild}-->
-<!--            , grade=NULL-->
-<!--        </if>-->
-
-<!--        where cid= (select cid from course where cname='${cname}') and sid = ${sid};-->
-<!--    </update>-->
 </mapper>

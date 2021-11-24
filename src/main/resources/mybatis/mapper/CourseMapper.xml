@@ -7,57 +7,57 @@
     <select id="getCourse" resultType="com.manager.pojo.Course">
         SELECT * FROM course where 1=1
         <if test="cid!=null">
-            AND cid = '${cid}'
+            AND cid = '#{cid}'
         </if>
         <if test="tid!=null">
-            AND `tid` = '${tid}'
+            AND `tid` = '#{tid}'
         </if>
         <if test="credit!=null">
-            AND credit = '${credit}'
+            AND credit = '#{credit}'
         </if>
         <if test="courseDay!=null">
-            AND courseDay = '${courseDay}'
+            AND courseDay = '#{courseDay}'
         </if>
         <if test="courseSection!=null">
-            AND courseSection = '${courseSection}'
+            AND courseSection = '#{courseSection}'
         </if>
     </select>
 
     <insert id="selectCourse">
         INSERT  INTO  course_selected(sid,cid,tid,cname,teacherName,studentName,credit,`start`,`end`,clazz,courseDay,courseSection)
-        VALUES ('${sid}','${cid}','${tid}','${cname}','${teacherName}','${studentName}','${credit}','${start}','${end}','${clazz}' ,'${courseDay}','${courseSection}');
+        VALUES ('#{sid}','#{cid}','#{tid}','#{cname}','#{teacherName}','#{studentName}','#{credit}','#{start}','#{end}','#{clazz}' ,'#{courseDay}','#{courseSection}');
     </insert>
 
     <select id="checkSelected" resultType="map">
-        SELECT * FROM course_selected where cid = ${cid} and sid = ${sid}
+        SELECT * FROM course_selected where cid = #{cid} and sid = #{sid}
     </select>
 
     <select id="checkSelectedTime" resultType="map">
-        SELECT * FROM course_selected where courseDay = ${courseDay} and courseSection = ${courseSection}
+        SELECT * FROM course_selected where courseDay = #{courseDay} and courseSection = #{courseSection}
     </select>
 
     <select id="getSelectedCourse" resultType="com.manager.pojo.CourseSelected">
         SELECT sid,tid,cid,teacherName,studentName,cname,courseDay,courseSection,credit,`start`,`end`  FROM course_selected
         where 1=1
         <if test="sid!=null">
-            AND sid = '${sid}'
+            AND sid = #{sid}
         </if>
         <if test="tid!=null">
-            AND `tid` = '${tid}'
+            AND `tid` = #{tid}
         </if>
     </select>
 
     <delete id="dropSelectedCourse">
-        DELETE  FROM course_selected where cid = ${cid} and sid = ${sid}
+        DELETE  FROM course_selected where cid = #{cid} and sid = #{sid}
     </delete>
 
     <insert id="addCourse">
         INSERT  INTO  course(tid,cname,teacherName,credit,courseDay,courseSection,`start`,`end`,courseInfo)
-        VALUES ('${tid}','${cname}','${teacherName}','${credit}','${courseDay}','${courseSection}','${start}','${end}','${courseInfo}');
+        VALUES (#{tid},#{cname},#{teacherName},#{credit},#{courseDay},#{courseSection},#{start},#{end},#{courseInfo});
     </insert>
 
     <delete id="dropCourse">
-        DELETE  FROM course where cid = ${cid}
+        DELETE  FROM course where cid = #{cid}
     </delete>
 
     <update id="updateCourse">
@@ -71,8 +71,7 @@
     </update>
 
     <delete id="dropSelectedCourseTea">
-        DELETE  FROM course_selected where cid = ${cid}
+        DELETE  FROM course_selected where cid = #{cid}
     </delete>
-
 
 </mapper>

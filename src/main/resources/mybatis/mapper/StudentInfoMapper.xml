@@ -7,38 +7,42 @@
     <select id="getStudentInfo" resultType="com.manager.pojo.Student">
         SELECT sid,`name`,clazz,mail,phone,address,other FROM student_info where 1=1
         <if test="sid!=null">
-            AND sid = '${sid}'
+            AND sid = #{sid}
         </if>
         <if test="name!=null">
-            AND `name` = '${name}'
+            AND `name` = #{name}
         </if>
         <if test="clazz!=null">
-            AND clazz = '${clazz}'
+            AND clazz = #{clazz}
         </if>
         <if test="mail!=null">
-            AND mail = '${mail}'
+            AND mail = #{mail}
         </if>
         <if test="phone!=null">
-            AND phone = '${phone}'
+            AND phone = #{phone}
         </if>
     </select>
 
     <update id="updateStudentInfo">
-        UPDATE student_info set `name` = '${name}',mail = '${mail}',phone = '${phone}',other ='${other}',address = '${address}'
+        UPDATE student_info set `name` = #{name},mail = #{mail},phone = #{phone},other =#{other},address = #{address}
         WHERE sid = ${sid}
     </update>
 
 
     <select id="getStudentNameBySid" resultType="map">
-        SELECT `name` FROM student_info where  sid = '${sid}'
+        SELECT `name` FROM student_info where  sid = #{sid}
     </select>
 
-    <select id="getStudentBySid" resultType="map">
-        SELECT passwordData FROM student_info where  sid = '${sid}'
+    <select id="getStudentMailBySid" resultType="map" >
+        SELECT `mail` FROM student_info where  sid = #{sid}
     </select>
 
     <select id="getStuValidator" resultType="com.manager.pojo.Validator">
-        SELECT passwordData FROM student_info where  sid = '${sid}'
+        SELECT passwordData FROM student_info where  sid = #{sid}
     </select>
+
+    <update id="updatePassword">
+        UPDATE student_info set `passwordData` = '${passwordData}' WHERE sid = ${sid}
+    </update>
 
 </mapper>

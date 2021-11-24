@@ -6,6 +6,7 @@ spring:
     password: Zhaoweining750
     url: jdbc:mysql://localhost:3306/stu?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
 
+
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     # 初始化大小，最小，最大
@@ -29,14 +30,19 @@ spring:
     filters: stat,wall,slf4j
     # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-    # 合并多个DruidDataSource的监控数据
-    #useGlobalDataSourceStat: true
 
     platform: mysql
-  security:
-    user:
-      name: docker
-      password: 123456
+
+  mail:
+    host: smtp.qq.com
+    username: 2134356214@qq.com
+    password: ckhvaflqxmaxfech
+    properties:
+      from: 2134356214@qq.com
+#  security:
+#    user:
+#      name: docker
+#      password: 123456
 
 
 mybatis:
