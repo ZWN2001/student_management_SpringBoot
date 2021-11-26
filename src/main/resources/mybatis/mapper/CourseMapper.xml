@@ -7,25 +7,25 @@
     <select id="getCourse" resultType="com.manager.pojo.Course">
         SELECT * FROM course where 1=1
         <if test="cid!=null">
-            AND cid = '#{cid}'
+            AND cid = #{cid}
         </if>
         <if test="tid!=null">
-            AND `tid` = '#{tid}'
+            AND `tid` = #{tid}
         </if>
         <if test="credit!=null">
-            AND credit = '#{credit}'
+            AND credit = #{credit}
         </if>
         <if test="courseDay!=null">
-            AND courseDay = '#{courseDay}'
+            AND courseDay = #{courseDay}
         </if>
         <if test="courseSection!=null">
-            AND courseSection = '#{courseSection}'
+            AND courseSection = #{courseSection}
         </if>
     </select>
 
     <insert id="selectCourse">
         INSERT  INTO  course_selected(sid,cid,tid,cname,teacherName,studentName,credit,`start`,`end`,clazz,courseDay,courseSection)
-        VALUES ('#{sid}','#{cid}','#{tid}','#{cname}','#{teacherName}','#{studentName}','#{credit}','#{start}','#{end}','#{clazz}' ,'#{courseDay}','#{courseSection}');
+        VALUES (#{sid},#{cid},#{tid},#{cname},#{teacherName},#{studentName},#{credit},#{start},#{end},#{clazz} ,#{courseDay},#{courseSection});
     </insert>
 
     <select id="checkSelected" resultType="map">
