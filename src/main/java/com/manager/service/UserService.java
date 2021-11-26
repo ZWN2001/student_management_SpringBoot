@@ -53,7 +53,7 @@ public class UserService {
                  validator = teacherMapper.getTeaValidator(id);
                 if (BCrypt.checkpw(password, validator.getPasswordData())){
                     SimpleDateFormat sdf = new SimpleDateFormat();// 格式化时间
-                    sdf.applyPattern("yyyy-MM-dd HH:mm:ss a");// a为am/pm的标记
+                    sdf.applyPattern("yyyy-MM-dd HH:mm:ss");// a为am/pm的标记
                     Date date = new Date();
                     String lastLoginTime = sdf.format(date);
                     logMapper.insertLog(id,lastLoginTime);

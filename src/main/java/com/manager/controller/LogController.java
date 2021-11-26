@@ -1,5 +1,6 @@
 package com.manager.controller;
 
+import com.manager.pojo.UserLog;
 import com.manager.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,7 +17,7 @@ public class LogController {
     LogService logService;
 
     @PostMapping("/log/selectLog")
-    public ArrayList<String> GetInfo(@RequestBody String id){
+    public ArrayList<UserLog> GetLogInfo(@RequestBody String id){
         return logService.selectLog(id);
     }
 

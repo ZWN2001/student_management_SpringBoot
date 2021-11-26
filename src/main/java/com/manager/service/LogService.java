@@ -5,21 +5,35 @@ import com.manager.pojo.UserLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.*;
 
 @Service
 public class LogService {
     @Autowired
     LogMapper logMapper;
 
-    ArrayList<String> logs = new ArrayList<>();
-    public ArrayList<String> selectLog(String id){
-        System.out.println(id);
-        logs.clear();
-        for (UserLog log :logMapper.selectLog(id)) {
-            logs.add(log.getLastLoginTime());
+    List<UserLog> myList;
+    ArrayList<UserLog> resultList = new ArrayList<>();
+    UserLog log;
+    public ArrayList<UserLog> selectLog(String id){
+        resultList.clear();
+        LinkedList<UserLog> logList = logMapper.selectLog(id);
+
+        if (logList.size()>=8){
+            myList = logList.subList(logList.size() - 8,logList.size()-1);
+            for (int i = 1;i<8;i++){
+                log = myList.get(i-1);
+                log.setId(i+"");
+                resultList.add(log);
+            }
+        }else {
+            myList = logList;
+            for (int i = 1;i<=myList.size();i++){
+                log = myList.get(i-1);
+                log.setId(i+"");
+                resultList.add(log);
+            }
         }
-        System.out.println(logs);
-        return logs;
+        return resultList;
     }
 }
