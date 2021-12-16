@@ -30,10 +30,7 @@ public class CourseService {
         myCourse.setCredit(Objects.equals(params.get("credit"), "") ?null:Integer.parseInt(params.get("credit")));
         myCourse.setCourseDay(Objects.equals(params.get("courseDay"), "") ?null:Integer.parseInt(params.get("courseDay")));
         myCourse.setCourseSection(Objects.equals(params.get("courseSection"), "") ?null:Integer.parseInt(params.get("courseSection")));
-            for (Course course: courseMapper.getCourse(myCourse)) {
-                System.out.println("course:"+course);
-                courses.add(course);
-            }
+        courses.addAll(courseMapper.getCourse(myCourse));
 
         return MyPageHelper.myPageHelper(params, courses);
     }

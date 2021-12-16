@@ -84,6 +84,14 @@ public class Course {
         this.courseDay = courseDay;
     }
 
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
     public Integer getCourseSection() {
         return courseSection;
     }
@@ -114,13 +122,5 @@ public class Course {
 
     public void setCourseInfo(String courseInfo) {
         this.courseInfo = courseInfo;
-    }
-
-    public String getTeacherName() {
-        return teacherName;
-    }
-
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
     }
 }

@@ -18,6 +18,7 @@ public class CourseController {
 
      @PostMapping("/getCourse")
     public Map<String,Object> get_course(@RequestBody Map<String,String> params){
+         System.out.println(courseService.getCourseMap(params));
         return courseService.getCourseMap(params);
     }
 
