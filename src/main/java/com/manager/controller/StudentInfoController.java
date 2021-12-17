@@ -17,14 +17,12 @@ public class StudentInfoController {
 
     @PostMapping("/studentInfo/searchInfo")
     public Map<String, Object> GetInfo(@RequestBody Map<String,Object> params){
-        System.out.println(params.get("name"));
         return studentInfo.searchStudentInfo(params);
     }
 
     //更新学生信息
     @PostMapping("/studentInfo/updateInfo")
     public Integer UpdateInfo(@RequestBody Map<String,Object> params){
-        System.out.println(params);
         return studentInfo.updateStudentInfo(params);
     }
 
